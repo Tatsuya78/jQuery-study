@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jQuery.mini.js"></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .box {
+            width: 400px;
+            margin: 300px auto;
+        }
+        .nav {
+            width: 200px;
+        }
+        li {
+            height: 20px;
+            list-style: none;
+            background-color: #eee;
+            cursor: pointer;
+            border: 1px solid grey;
+            text-align: center;
+            line-height: 20px;
+            color: rgba(0, 0, 0, .5);
+        }
+        .content {
+            width: 200px;
+            height: 110px;
+        }
+        .fl {
+            float: left;
+        }
+        .current {
+            background-color: grey;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="nav fl">
+            <ul>
+                <li>blanchedalmond</li>
+                <li>burlywood</li>
+                <li>chocolate</li>
+                <li>darkseagreen</li>
+                <li>thistle</li>
+            </ul>
+        </div>
+        <div class="content fl"></div>
+    </div>
+    <script>
+        $(function(){
+            $('.nav li').mouseover(function(){
+                $(this).siblings.className = '';
+                $(this)[0].className = 'current';
+                var colorName = $(this)[0].innerHTML;
+                $('.content').css('background', colorName);
+            })
+            $('.nav li').mouseout(function(){
+                $(this)[0].classList.remove('current');
+                $('.content').css('background', 'white');
+            })
+        })
+    </script>
+</body>
+</html>
